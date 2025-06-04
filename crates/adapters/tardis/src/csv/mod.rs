@@ -874,7 +874,10 @@ mod tests {
         #[case] price_precision: Option<u8>,
         #[case] size_precision: Option<u8>,
     ) {
-        let filepath = ensure_data_exists_tardis_deribit_book_l2();
+        let filepath = match ensure_data_exists_tardis_deribit_book_l2() {
+            Some(p) => p,
+            None => return,
+        };
         let deltas = load_deltas(
             filepath,
             price_precision,
@@ -908,7 +911,10 @@ mod tests {
         #[case] price_precision: Option<u8>,
         #[case] size_precision: Option<u8>,
     ) {
-        let filepath = ensure_data_exists_tardis_binance_snapshot5();
+        let filepath = match ensure_data_exists_tardis_binance_snapshot5() {
+            Some(p) => p,
+            None => return,
+        };
         let depths = load_depth10_from_snapshot5(
             filepath,
             price_precision,
@@ -950,7 +956,10 @@ mod tests {
         #[case] price_precision: Option<u8>,
         #[case] size_precision: Option<u8>,
     ) {
-        let filepath = ensure_data_exists_tardis_binance_snapshot25();
+        let filepath = match ensure_data_exists_tardis_binance_snapshot25() {
+            Some(p) => p,
+            None => return,
+        };
         let depths = load_depth10_from_snapshot25(
             filepath,
             price_precision,
@@ -992,7 +1001,10 @@ mod tests {
         #[case] price_precision: Option<u8>,
         #[case] size_precision: Option<u8>,
     ) {
-        let filepath = ensure_data_exists_tardis_huobi_quotes();
+        let filepath = match ensure_data_exists_tardis_huobi_quotes() {
+            Some(p) => p,
+            None => return,
+        };
         let quotes = load_quote_ticks(
             filepath,
             price_precision,
@@ -1024,7 +1036,10 @@ mod tests {
         #[case] price_precision: Option<u8>,
         #[case] size_precision: Option<u8>,
     ) {
-        let filepath = ensure_data_exists_tardis_bitmex_trades();
+        let filepath = match ensure_data_exists_tardis_bitmex_trades() {
+            Some(p) => p,
+            None => return,
+        };
         let trades = load_trade_ticks(
             filepath,
             price_precision,
